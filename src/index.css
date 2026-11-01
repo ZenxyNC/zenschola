@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-primary);
+    color: var(--color-text-pri);
+    font-family: "Inter";
+    overflow-x: hidden;
+    transition: all .1s ease-in-out;
+    scrollbar-width: none;
+  }
+
+  html {
+    background-color: var(--color-primary);
+    scrollbar-width: thin;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  input::placeholder {
+    color: var(--color-text-sec)
+  }
+}
+
+:root {
+  --color-primary: #EBEBEB;
+  --color-secondary: #F5F5F5;
+  --color-accent: #007AFF;
+  --color-upcoming: #B577D6;
+  --color-danger: #FF393D;
+  --color-ongoing: #30D158;
+  --color-text-pri: #000000;
+  --color-text-sec: rgba(0, 0, 0, 0.40);
+  --color-border: rgba(0, 0, 0, 0.12);
+
+  --radius-outer: 28px;
+  --radius-inner: 16px;
+  --radius-independent: 20px;
+
+  --shadow-sm:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.04);
+
+  --shadow-md:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+
+  --shadow-lg:
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 16px 32px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--color-text-sec);
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --radius-outer: 32px;
+    --radius-inner: 16px;
+    --radius-independent: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    color: var(--color-text-sec);
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.dark {
+    --color-primary: #111111;
+    --color-secondary: #1D1D1F;
+    --color-accent: #007AFF;
+    --color-text-pri: #F5F5F5;
+    --color-text-sec: rgba(245, 245, 245, 0.4);
+    --color-border: rgba(245, 245, 245, 0.12);
+
+    --shadow-sm:
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.4);
+
+    --shadow-md:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 8px 16px rgba(0, 0, 0, 0.4);
+
+    --shadow-lg:
+      0 0 0 1px rgba(255, 255, 255, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.45),
+      0 32px 64px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-text-pri: var(--color-text-pri);
+  --color-text-sec: var(--color-text-sec);
+  --color-border: var(--color-border);
+  --color-ongoing: var(--color-ongoing);
+  --color-upcoming: var(--color-upcoming);
+  --color-danger: var(--color-danger);
+
+  --radius-outer: var(--radius-outer);
+  --radius-inner: var(--radius-inner);
+  --radius-independent: var(--radius-independent);
+
+  --shadow-shadow-sm: var(--shadow-sm);
+  --shadow-shadow-md: var(--shadow-md);
+  --shadow-shadow-lg: var(--shadow-lg);
+}

@@ -143,7 +143,7 @@ export async function fetchUserdata(setUser, setUserInfo, setIsUserLoading) {
   const localUserId = getUserInfo(userInfoSetter)?.userid;
   console.log(localUserId);
   if (!localUserId) {
-    //window.location.href = "https://zenxync.github.io/zenaccount/loginprovider?appOrigin=zenschola";
+    window.location.href = "https://zenxync.github.io/zenaccount/loginprovider?appOrigin=zenschola";
     if (typeof loadingSetter === "function") loadingSetter(false);
     return { ok: false };
   }

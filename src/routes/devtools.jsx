@@ -6,9 +6,9 @@ export default function DevTools() {
     return localStorage.getItem("zenschola-user-info")
   }
   return (
-    <>
+    <main className="mt-15">
       <button onClick={() => saveLocalStorage()}>Add item to local storage</button>
       {getLocalStorage()}
-    </>
+    </main>
   )
 }

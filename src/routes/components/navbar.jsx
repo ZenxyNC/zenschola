@@ -2,6 +2,7 @@ import { IoPerson } from "react-icons/io5";
 import { useState, useRef } from "react";
 import { useClickOutside } from "react-haiku";
 import { Link, useNavigate } from "react-router-dom";
+import ZenSchola from '../../assets/ZenSchola.png';
 
 export default function Navbar({settingsConfig, setSettingsConfig}) {
   const navigate = useNavigate();
@@ -16,8 +17,8 @@ export default function Navbar({settingsConfig, setSettingsConfig}) {
     <>
       <div className={`w-full h-15 border-b border-border flex justify-between p-3 fixed z-990 top-0 left-0 transition-all duration-200 ease-in-out ${settingsConfig.advancedVisual ? "bg-primary/40 backdrop-blur-[32px]": "bg-primary backdrop-blur-none"}`}>
         {/* App Icon */}
-        <a className="flex gap-2 h-full items-center w-max cursor-pointer" href="/zenschola/dashboard">
-          <img src="/ZenSchola.png" className="rounded-lg h-full"/>
+        <a className="flex gap-2 h-full items-center w-max cursor-pointer" href="/zenschola/">
+          <img src={ZenSchola} className="rounded-lg h-full"/>
           <span className="font-bold text-xl">ZenSchola</span>
         </a>
 

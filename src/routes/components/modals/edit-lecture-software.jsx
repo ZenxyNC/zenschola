@@ -87,7 +87,7 @@ export default function EditLectureSoftware({ userData, setUserData, lectures })
         .from("users")
         .update({ lecturesSoftwareUrl: prevList })
         .eq("userid", userData.userid);
-      if (error) throw error;
+       if (error) throw error;
     } catch (error) {
       console.error("Error updating lecture software:", error);
       // Roll back optimistic update on failure

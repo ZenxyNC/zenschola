@@ -187,16 +187,16 @@ export default function ScheduleCard({
 
 
         {/* Lecture Tools */}
-        {status === "ongoing" &&
+        {(status === "ongoing" || status === "upcoming") &&
           <>
             <div className="w-full h-px bg-border rounded-full my-1"></div>
 
             <div className="flex gap-3 flex-wrap">
               <button
-                className={`w-max h-max px-3 py-1 rounded-lg border border-border/60 bg-primary transition-all duration-200 flex items-center justify-center gap-2 ${getIsAttended() ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:scale-103 active:scale-97"}`}
+                className={`w-max h-max px-3 py-1 rounded-lg border border-border/60 bg-primary transition-all duration-200 flex items-center justify-center gap-2 ${status === "upcoming" || status === "completed" ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:scale-103 active:scale-97"}`}
                 onClick={handlePresent}
-                disabled={getIsAttended()}
-                title={getIsAttended() ? "You've already marked this lecture as attended" : "Present to this lecture"}
+                disabled={status === "upcoming" || status === "completed"}
+                title={status === "upcoming" ? "Lecture is not yet started" : "Present to this lecture"}
               >
                 <IoKeyOutline size={16} color="var(--color-text-pri)" />
                 <span className="text-text-pri font-medium text-sm">Present</span>

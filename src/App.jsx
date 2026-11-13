@@ -47,19 +47,25 @@ export default function App() {
         <AddStudyUtility
           userData={userData}
           setUserData={setUserData}
+          settingsConfig={settingsConfig}
         />
         <EditStudyUtility
           userData={userData}
           setUserData={setUserData}
+          settingsConfig={settingsConfig}
         />
         <StudentID
           nim={userData?.nim}
           username={userInfo?.username}
           major={userData?.major}
+          settingsConfig={settingsConfig}
         />
         <Navbar
           settingsConfig={settingsConfig}
           setSettingsConfig={setSettingsConfig}
+          firstName={userInfo?.first_name}
+          username={userInfo?.username}
+          nim={userData?.nim}
         />
         <Routes>
           <Route path="/" element={
@@ -94,6 +100,8 @@ export default function App() {
               userData={userData}
               setUserData={setUserData}
               userInfo={userInfo}
+              settingsConfig={settingsConfig}
+              setSettingsConfig={setSettingsConfig}
             />
           } />
         </Routes>

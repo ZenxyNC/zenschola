@@ -4,7 +4,7 @@ import { usePreventBodyScroll, useClickOutside } from 'react-haiku';
 import { supabase } from '../../../supabase-client';
 import { apiHitCounter } from '../../../functions';
 
-export default function EditStudyUtility({ userData, setUserData }) {
+export default function EditStudyUtility({ userData, setUserData, settingsConfig }) {
   const { isScrollLocked, toggleScrollLock } = usePreventBodyScroll();
   const [searchParams] = useSearchParams();
   const utilityId = searchParams.get("id");
@@ -89,9 +89,9 @@ export default function EditStudyUtility({ userData, setUserData }) {
   }
 
   return (
-    <div className={`fixed w-dvw h-dvh top-0 flex items-center justify-center p-5 bg-[#000000]/16 z-999 transition-all duration-400 ease-in-out ${location.hash == "#edit-study-utility" ? "backdrop-blur-lg opacity-100" : "backdrop-blur-0 opacity-0 pointer-events-none"}`}>
+    <div className={`fixed w-dvw h-dvh top-0 flex items-center justify-center p-5 bg-[#000000]/16 z-999 transition-all duration-400 ease-in-out ${location.hash == "#edit-study-utility" ? `${settingsConfig.advancedVisual ? "backdrop-blur-lg opacity-100" : "backdrop-blur-xs opacity-100"}` : "backdrop-blur-0 opacity-0 pointer-events-none"}`}>
       <div className={`
-        w-full max-w-125 h-max bg-secondary border border-border rounded-outer p-4 pt-3 transition-all duration-400 ease-in-out ${location.hash == "#edit-study-utility" ? "scale-100 blur-none opacity-100" : "scale-70 blur-[32px] opacity-20"}
+        w-full max-w-125 h-max bg-secondary border border-border rounded-outer p-4 pt-3 transition-all duration-400 ease-in-out ${location.hash == "#edit-study-utility" ? "scale-100 blur-none opacity-100" : `${settingsConfig.advancedVisual ? "scale-70 blur-[32px] opacity-20" : "scale-70 blur-none opacity-20"}`}
         lg:p-5 lg:pt-3
       `}
         ref={location.hash == "#edit-study-utility" ? clickOutsideRef : emptyRef}

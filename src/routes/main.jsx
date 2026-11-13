@@ -25,13 +25,16 @@ export default function Main({
     const localSettings = localStorage.getItem("zenschola-settings");
     if (localSettings) {
       try {
+        const html = document.documentElement;
+        html.classList.remove("dark", "light");
+        html.classList.add(JSON.parse(localSettings).theme);
         return JSON.parse(localSettings);
       } catch (e) {
         console.error("Error parsing local settings:", e);
       }
     }
     return {
-      theme: "dark",
+      theme: "light",
       advancedVisual: true,
     };
   });

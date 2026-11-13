@@ -4,7 +4,13 @@ import { useClickOutside } from "react-haiku";
 import { Link, useNavigate } from "react-router-dom";
 import ZenSchola from '../../assets/ZenSchola.png';
 
-export default function Navbar({settingsConfig, setSettingsConfig}) {
+export default function Navbar({
+  settingsConfig, 
+  setSettingsConfig, 
+  firstName, 
+  username, 
+  nim
+}) {
   const navigate = useNavigate();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const clickOutside = useRef(null);
@@ -26,14 +32,14 @@ export default function Navbar({settingsConfig, setSettingsConfig}) {
         <div
           className="flex gap-2 h-full items-center cursor-pointer"
           role="button"
-          tabIndex={0}
+          tabIndex={0}  
           onClick={() => setIsMenuOpened(!isMenuOpened)}
         >
           <span className="font-medium text-base text-text-pri">
-            Lucas
+            {firstName}
           </span>
-          <div className="h-full aspect-square rounded-full border border-border bg-secondary/60 flex justify-center items-center">
-            <IoPerson size={20} />
+          <div className="h-full aspect-square rounded-full border border-border bg-secondary/60 p-2 flex justify-center items-center">
+            <img src={`https://api.dicebear.com/10.x/identicon/svg?seed=${nim}`} />
           </div>
         </div>
       </div>
@@ -42,7 +48,7 @@ export default function Navbar({settingsConfig, setSettingsConfig}) {
       <div
         className={`
           ${isMenuOpened ? "opacity-100" : "opacity-0 pointer-events-none"}
-          w-60 h-max fixed top-19 right-4 border border-border z-50 rounded-independent p-3 flex flex-col gap-3 ${settingsConfig.advancedVisual ? "bg-secondary/40 backdrop-blur-[32px]" : "bg-primary backdrop-blur-none"} transition-all duration-300 ease-in-out
+          w-60 h-max fixed top-19 right-4 border border-border z-50 rounded-independent p-3 flex flex-col gap-3 ${settingsConfig.advancedVisual ? "bg-secondary/40 backdrop-blur-[32px]" : "bg-secondary backdrop-blur-none"} transition-all duration-300 ease-in-out
         `}
 
         ref={clickOutside}
@@ -79,7 +85,7 @@ export default function Navbar({settingsConfig, setSettingsConfig}) {
           </div>
 
           {/* Name and Email */}
-          <span className="text-xs">Lucas Harel</span>
+          <span className="text-sm">{username}</span>
         </div>
       </div>
     </>

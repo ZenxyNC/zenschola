@@ -24,10 +24,28 @@ export default function BasicLineChart({ settingsConfig, attendanceHistory = {} 
       }
     }
     if(maxValue < 10) {
-      return 10;
-    } else {
-      return maxValue;
+      maxValue = 10;
     }
+
+    return maxValue;
+  }
+
+  function getMinAttendance() {
+    const attendanceRate = getAttendance();
+    const maxAttendance = getMaxAttendance();
+    var minValue = maxAttendance;
+
+    for(let i = 0; i <= attendanceRate.length; i++) {
+      if(attendanceRate[i] < minValue) {
+        minValue = attendanceRate[i];
+      }
+    }
+
+    if ((maxAttendance - minValue) < 4) {
+      minValue = maxAttendance - 4;
+    }
+
+    return minValue;
   }
   return (
     <LineChart
@@ -44,7 +62,7 @@ export default function BasicLineChart({ settingsConfig, attendanceHistory = {} 
           ],
         },
       ]}
-      yAxis={[{ min: 0, max: getMaxAttendance() }]}
+      yAxis={[{ min: getMinAttendance(), max: getMaxAttendance() }]}
       series={[
         {
           data: getAttendance(),
